@@ -6,10 +6,21 @@ import (
 	"net/http"
 
 	"github.com/PuerkitoBio/goquery"
+	"golang.org/x/net/proxy"
 )
 
 func main() {
-	res, err := http.Get("https://dictionary.cambridge.org/pronunciation/english/uncle")
+	socksProxy, err := proxy.SOCKS5("tcp", "localhost:9150", nil, proxy.Direct)
+	if err != nil {
+		log.Fatalln(err)
+	}
+	transport := &http.Transport{Dial: socksProxy.Dial}
+
+	client := &http.Client{
+		Transport: transport,
+	}
+
+	res, err := client.Get("https://dictionary.cambridge.org/pronunciation/english/uncle")
 	if err != nil {
 		log.Fatalln(err)
 	}
