@@ -3,6 +3,7 @@ package util
 import (
 	"net/http"
 
+	"github.com/joho/godotenv"
 	"golang.org/x/net/proxy"
 )
 
@@ -18,4 +19,13 @@ func SetProxy(addr string) (*http.Client, error) {
 	}
 
 	return client, nil
+}
+
+func LoadEnv(path string) error {
+	err := godotenv.Load(path)
+	if err != nil {
+		return err
+	}
+
+	return nil
 }
