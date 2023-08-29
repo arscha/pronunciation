@@ -8,8 +8,9 @@ import (
 )
 
 type PronResponse struct {
-	Pronunciation string   `json:"pron"`
-	LettersPron   []string `json:"letters"`
+	Word          string   `json:"word"`
+	Pronunciation string   `json:"ipa"`
+	LettersPron   []string `json:"sbspronun"`
 }
 
 func (p *PronResponse) getPron(url string) error {

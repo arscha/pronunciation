@@ -18,6 +18,8 @@ func handleGetPron(ctx *gin.Context) {
 
 	pronResp := PronResponse{}
 
+	pronResp.Word = query
+
 	err := pronResp.getPron(URL + query)
 	if err != nil {
 		ctx.Writer.WriteHeader(http.StatusNotFound)
@@ -25,5 +27,5 @@ func handleGetPron(ctx *gin.Context) {
 		return
 	}
 
-	ctx.JSON(http.StatusOK, gin.H{"word pron": pronResp.Pronunciation, "letters": pronResp.LettersPron})
+	ctx.JSON(http.StatusOK, gin.H{"ipa": pronResp.Pronunciation, "letters": pronResp.LettersPron})
 }
