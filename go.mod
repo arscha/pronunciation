@@ -1,4 +1,4 @@
-module github.com/arschaaa/pronunciation
+module github.com/arscha/pronunciation
 
 go 1.20
 

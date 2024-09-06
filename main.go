@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/arschaaa/pronunciation/api"
+	"github.com/arscha/pronunciation/api"
 )
 
 func main() {

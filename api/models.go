@@ -4,7 +4,7 @@ import (
 	"fmt"
 
 	"github.com/PuerkitoBio/goquery"
-	"github.com/arschaaa/pronunciation/util"
+	"github.com/arscha/pronunciation/util"
 )
 
 type PronResponse struct {
